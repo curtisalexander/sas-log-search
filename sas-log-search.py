@@ -6,16 +6,11 @@ current_dt = time.strftime('%Y-%m-%d_%H-%M-%S')
 log_dir = '/some/dir/with/SAS/logs'
 results_file = '/some/dir/to/write/results/results_{_dt}.txt'.format(_dt = current_dt)
 
-'''Write out line from SAS log to results file if
-     ERROR - any time 'ERROR' is found
-     WARNING - any time 'WARNING' is found except when begins 'Unable to copy
-       SASUSER'
-     NOTE - any time 'NOTE' is found along with the words 'initalized' or
-       'Missing values'
-'''
+
 issue_list = ['ERROR', 'WARNING', 'NOTE']
 note_inclusion_list = ['initialized', 'Missing values']
 warning_exclusion_list = ['Unable to copy SASUSER']
+
 
 with open(results_file, 'w') as outfile:
     for fn in sorted(os.listdir(log_dir)):

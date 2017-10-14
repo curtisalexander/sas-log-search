@@ -1,9 +1,14 @@
 # sas-log-search
 
 Parse SAS logs looking for
-* ERROR – looks for ‘ERROR’ in the SAS logs
-* WARNING – looks for ‘WARNING’ in the SAS logs, ignoring the situations when it throws a warning that starts with ‘Unable to copy SASUSER…’ which can be safely ignored
-* NOTE – looks for notes that inform you that a variable is uninitialized and looks for notes that inform you of missing value operations
+
+* ERROR
+    * any `ERROR` in the SAS logs
+* WARNING
+    * any `WARNING` in the SAS logs [ignoring a `WARNING` that starts with `Unable to copy SASUSER…`]
+* NOTE
+    * `NOTE` that informs one that a variable is uninitialized
+    * `NOTE` that informs one of missing value operations
  
 ## Usage
 
